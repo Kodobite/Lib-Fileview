@@ -4,16 +4,21 @@ plugins {
 
 android {
     namespace 'io.kodebite.fileviewlib'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "io.kodebite.fileviewlib"
         minSdk 23
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    //viewBinding
+    buildFeatures {
+        viewBinding true
     }
 
     buildTypes {
@@ -32,7 +37,6 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
-    implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
