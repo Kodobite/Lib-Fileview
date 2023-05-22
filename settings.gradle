@@ -17,3 +17,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Fileview Lib"
 include ':app'
+include ':fileViewer'
+
