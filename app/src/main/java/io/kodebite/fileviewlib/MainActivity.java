@@ -16,6 +16,10 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        binding.videoView.setOnClickListener(v -> {
+            startActivity(new android.content.Intent(this, VideoView.class));
+        });
+
 
     }
 }
