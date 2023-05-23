@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import io.kodebite.fileviewlib.databinding.ActivityMainBinding;
+import io.kodebite.fileviewlib.video_view.VideoView;
 
 public class MainActivity extends AppCompatActivity {
 

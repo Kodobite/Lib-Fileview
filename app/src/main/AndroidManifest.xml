@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -19,14 +18,28 @@
         android:theme="@style/Theme.FileviewLib"
         tools:targetApi="31">
         <activity
-            android:name=".VideoView"
+            android:name=".AudioViewActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".VideoViewActivity"
+            android:name=".PhotoViewActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".video_view.VideoView"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".video_view.VideoViewActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false">
             <meta-data
@@ -52,7 +65,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/storage_path" />
         </provider>
-
     </application>
 
 </manifest>

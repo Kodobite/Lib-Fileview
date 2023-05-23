@@ -1,4 +1,4 @@
-package io.kodebite.fileviewlib;
+package io.kodebite.fileviewlib.video_view;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
