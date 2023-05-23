@@ -21,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new android.content.Intent(this, VideoView.class));
         });
 
+        binding.photoView.setOnClickListener(v -> {
+            startActivity(new android.content.Intent(this, PhotoViewActivity.class));
+        });
+
 
     }
 }
