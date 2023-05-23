@@ -77,7 +77,6 @@ public class VideoMediaController extends FrameLayout {
                 updateBackButton();
                 mPlayer.setFullscreen(false);
             }
-
         }
     };
     private ViewGroup loadingLayout;

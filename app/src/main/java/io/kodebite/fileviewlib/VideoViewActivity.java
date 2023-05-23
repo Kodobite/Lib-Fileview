@@ -17,7 +17,7 @@ import io.kodebite.fileviewlib.databinding.ActivityVideoViewBinding;
 public class VideoViewActivity extends AppCompatActivity {
 
     ActivityVideoViewBinding binding;
-    String videoPath = "/storage/emulated/0/Download/m.mp4";
+    String videoPath = "/storage/emulated/0/Download/videoplayback.mp4";
     private int mSeekPosition;
     private int cachedHeight;
     private boolean isFullscreen;
