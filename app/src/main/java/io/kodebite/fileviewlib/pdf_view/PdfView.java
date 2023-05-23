@@ -1,4 +1,4 @@
-package io.kodebite.fileviewlib;
+package io.kodebite.fileviewlib.pdf_view;
 
 import android.os.Bundle;
 

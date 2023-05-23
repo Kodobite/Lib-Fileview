@@ -18,7 +18,14 @@
         android:theme="@style/Theme.FileviewLib"
         tools:targetApi="31">
         <activity
-            android:name=".PdfView"
+            android:name=".pdf_view.PdfViewerActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".pdf_view.PdfView"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
