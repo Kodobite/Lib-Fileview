@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 
 import io.kodebite.fileviewer.pdfView.PDFView;
@@ -213,6 +214,86 @@ public class FileViewer {
         public void dismiss() {
             dialog.dismiss();
         }
+
+    }
+
+    public static class CustomAudioPlayerDialog {
+
+        Activity activity;
+        Dialog dialog;
+
+        ImageView closeIcon;
+        TextView audioTitle;
+        CustomAudioPlayer customAudioPlayer;
+        private boolean isMethodInvoked = false;
+
+
+        public CustomAudioPlayerDialog(Activity activity) {
+            this.activity = activity;
+            dialog = new Dialog(activity);
+
+            init();
+        }
+
+        private void init() {
+            dialog.setContentView(R.layout.custom_audio_player_dialog_layout);
+            dialog.setCancelable(false);
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+            // full screen
+            dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+
+            audioTitle = dialog.findViewById(R.id.title);
+            customAudioPlayer = dialog.findViewById(R.id.audioPlayer);
+
+            closeIcon = dialog.findViewById(R.id.close_icon_video_view);
+
+            closeIcon.setOnClickListener(v -> {
+                dialog.dismiss();
+            });
+
+        }
+
+        public void setCancelable(boolean cancelable) {
+            dialog.setCancelable(cancelable);
+        }
+
+
+        public void setTitle(String titleString) {
+            audioTitle.setText(titleString);
+        }
+
+        // set path
+        public void setDataSource(String path) throws IOException {
+
+            if (isMethodInvoked) {
+                throw new IllegalStateException("One method is already invoked.");
+            }
+            isMethodInvoked = true;
+            customAudioPlayer.setDataSource(path);
+        }
+
+
+        // set uri
+        public void setDataSource(Uri uri) throws IOException {
+
+            if (isMethodInvoked) {
+                throw new IllegalStateException("One method is already invoked.");
+            }
+            isMethodInvoked = true;
+            customAudioPlayer.setDataSource(uri);
+        }
+
+
+        public void show() {
+            dialog.show();
+            customAudioPlayer.play();
+
+        }
+
+        public void dismiss() {
+            dialog.dismiss();
+        }
+
 
     }
 

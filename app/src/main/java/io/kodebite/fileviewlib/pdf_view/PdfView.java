@@ -24,7 +24,7 @@ public class PdfView extends AppCompatActivity {
         binding.pdfViewDialog.setOnClickListener(v -> {
             FileViewer.CustomPDFViewerDialog dialog = new FileViewer.CustomPDFViewerDialog(this);
             dialog.setPdfTitle("Title");
-            dialog.setUpPdf(new File("/storage/emulated/0/Download/pdf-test.pdf"), true, true, 0);
+            dialog.setUpPdf(new File("/storage/emulated/0/Download/LearnJava.pdf"), true, true, 0);
             dialog.show();
         });
 
