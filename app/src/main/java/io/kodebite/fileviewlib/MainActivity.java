@@ -22,9 +22,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new android.content.Intent(this, VideoView.class));
         });
 
-        binding.photoView.setOnClickListener(v -> {
-            startActivity(new android.content.Intent(this, PhotoViewActivity.class));
+
+        binding.audioView.setOnClickListener(v -> {
+            startActivity(new android.content.Intent(this, AudioViewer.class));
         });
+
 
         binding.pdfView.setOnClickListener(v -> {
             startActivity(new android.content.Intent(this, PdfView.class));
