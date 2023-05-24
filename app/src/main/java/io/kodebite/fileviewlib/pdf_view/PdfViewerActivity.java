@@ -16,5 +16,7 @@ public class PdfViewerActivity extends AppCompatActivity {
         binding = ActivityPdfViewerBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
+
     }
 }
