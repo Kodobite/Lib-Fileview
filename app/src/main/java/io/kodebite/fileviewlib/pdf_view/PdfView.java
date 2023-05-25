@@ -28,7 +28,6 @@ public class PdfView extends AppCompatActivity {
             dialog.show();
         });
 
-
         binding.pdfViewActivity.setOnClickListener(v -> {
             startActivity(new Intent(this, PdfViewerActivity.class));
         });

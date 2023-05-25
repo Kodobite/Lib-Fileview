@@ -19,8 +19,6 @@ public class AudioViewActivity extends AppCompatActivity {
         binding = ActivityAudioViewBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
-
         Objects.requireNonNull(getSupportActionBar()).setTitle("Title");
         try {
             binding.audioPlayer.setDataSource("/storage/emulated/0/Download/TestAudio.m4a");
