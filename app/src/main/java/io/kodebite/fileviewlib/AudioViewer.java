@@ -32,6 +32,10 @@ public class AudioViewer extends AppCompatActivity {
             dialog.show();
         });
 
+        binding.audioPlayActivity.setOnClickListener(v -> {
+            startActivity(new android.content.Intent(this, AudioViewActivity.class));
+        });
+
 
     }
 }
