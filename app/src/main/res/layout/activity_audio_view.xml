@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AudioViewActivity">
+    tools:context=".audio_play.AudioViewActivity">
 
 
-    <io.kodebite.fileviewer.CustomAudioPlayer
+    <io.kodebite.fileviewer.audioView.CustomAudioPlayer
         android:id="@+id/audioPlayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

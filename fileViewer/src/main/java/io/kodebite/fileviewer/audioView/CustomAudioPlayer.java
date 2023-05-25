@@ -1,4 +1,4 @@
-package io.kodebite.fileviewer;
+package io.kodebite.fileviewer.audioView;
 
 import android.content.Context;
 import android.media.MediaPlayer;
@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
+import io.kodebite.fileviewer.R;
 
 public class CustomAudioPlayer extends RelativeLayout {
 

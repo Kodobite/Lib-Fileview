@@ -1,4 +1,4 @@
-package io.kodebite.fileviewlib;
+package io.kodebite.fileviewlib.audio_play;
 
 import android.os.Bundle;
 

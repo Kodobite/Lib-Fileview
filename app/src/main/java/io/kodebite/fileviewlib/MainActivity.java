@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import io.kodebite.fileviewlib.audio_play.AudioViewer;
 import io.kodebite.fileviewlib.databinding.ActivityMainBinding;
 import io.kodebite.fileviewlib.pdf_view.PdfView;
 import io.kodebite.fileviewlib.video_view.VideoView;

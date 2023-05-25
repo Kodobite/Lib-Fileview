@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
+import io.kodebite.fileviewer.audioView.CustomAudioPlayer;
 import io.kodebite.fileviewer.pdfView.PDFView;
 import io.kodebite.fileviewer.videoView.CustomVideoView;
 import io.kodebite.fileviewer.videoView.VideoMediaController;
