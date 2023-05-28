@@ -17,18 +17,21 @@ import java.util.concurrent.TimeUnit;
 import io.kodebite.fileviewer.R;
 
 public class CustomAudioPlayer extends RelativeLayout {
-
     private final Handler handler = new Handler();
     private ImageView playButton;
     private SeekBar positionBar;
     private TextView elapsedTimeLabel;
     private TextView remainingTimeLabel;
     private MediaPlayer mediaPlayer;
-
     public CustomAudioPlayer(Context context) {
         super(context);
         init(context);
-    }
+    }    private Runnable updateSeekBarRunnable = new Runnable() {
+        @Override
+        public void run() {
+            updateSeekBar();
+        }
+    };
 
     public CustomAudioPlayer(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -59,17 +62,26 @@ public class CustomAudioPlayer extends RelativeLayout {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (mediaPlayer != null && fromUser) {
                     mediaPlayer.seekTo(progress);
+                    elapsedTimeLabel.setText(formatTime(progress));
+                    remainingTimeLabel.setText(formatTime(mediaPlayer.getDuration() - progress));
                 }
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+                if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+                    mediaPlayer.pause();
+                }
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+                if (mediaPlayer != null) {
+                    mediaPlayer.start();
+                }
             }
         });
+
     }
 
     public void setDataSource(String path) throws IOException {
@@ -86,12 +98,21 @@ public class CustomAudioPlayer extends RelativeLayout {
         positionBar.setMax(mediaPlayer.getDuration());
     }
 
-
     public void play() {
         if (mediaPlayer != null) {
             mediaPlayer.start();
             playButton.setImageResource(R.drawable.ic_baseline_pause_circle_outline_24);
-            updateSeekBar();
+            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    handler.removeCallbacks(updateSeekBarRunnable);  // stop updating
+                    playButton.setImageResource(R.drawable.ic_baseline_play_circle_outline_24);
+                    positionBar.setProgress(0);
+                    elapsedTimeLabel.setText(formatTime(0));
+                    remainingTimeLabel.setText(formatTime(mediaPlayer.getDuration()));
+                }
+            });
+            handler.post(updateSeekBarRunnable);  // start updating
         }
     }
 
@@ -99,13 +120,14 @@ public class CustomAudioPlayer extends RelativeLayout {
         if (mediaPlayer != null) {
             mediaPlayer.pause();
             playButton.setImageResource(R.drawable.ic_baseline_play_circle_outline_24);
+            handler.removeCallbacks(updateSeekBarRunnable);  // stop updating
         }
     }
 
     private void updateSeekBar() {
         if (mediaPlayer != null) {
             positionBar.setProgress(mediaPlayer.getCurrentPosition());
-            handler.postDelayed(this::updateSeekBar, 1000);
+            handler.postDelayed(updateSeekBarRunnable, 1000);
             elapsedTimeLabel.setText(formatTime(mediaPlayer.getCurrentPosition()));
             remainingTimeLabel.setText(formatTime(mediaPlayer.getDuration() - mediaPlayer.getCurrentPosition()));
         }
@@ -124,8 +146,11 @@ public class CustomAudioPlayer extends RelativeLayout {
             if (mediaPlayer.isPlaying()) {
                 mediaPlayer.stop();
             }
+            handler.removeCallbacks(updateSeekBarRunnable);  // stop updating
             mediaPlayer.release();
             mediaPlayer = null;
         }
     }
+
+
 }
