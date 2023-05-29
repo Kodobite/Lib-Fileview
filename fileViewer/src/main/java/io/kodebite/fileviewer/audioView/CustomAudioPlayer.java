@@ -23,15 +23,11 @@ public class CustomAudioPlayer extends RelativeLayout {
     private TextView elapsedTimeLabel;
     private TextView remainingTimeLabel;
     private MediaPlayer mediaPlayer;
+
     public CustomAudioPlayer(Context context) {
         super(context);
         init(context);
-    }    private Runnable updateSeekBarRunnable = new Runnable() {
-        @Override
-        public void run() {
-            updateSeekBar();
-        }
-    };
+    }
 
     public CustomAudioPlayer(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -41,7 +37,12 @@ public class CustomAudioPlayer extends RelativeLayout {
     public CustomAudioPlayer(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
-    }
+    }    private Runnable updateSeekBarRunnable = new Runnable() {
+        @Override
+        public void run() {
+            updateSeekBar();
+        }
+    };
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.custom_audio_player_view, this, true);
@@ -151,6 +152,8 @@ public class CustomAudioPlayer extends RelativeLayout {
             mediaPlayer = null;
         }
     }
+
+
 
 
 }
