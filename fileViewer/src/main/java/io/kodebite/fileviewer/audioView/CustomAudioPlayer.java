@@ -154,6 +154,4 @@ public class CustomAudioPlayer extends RelativeLayout {
     }
 
 
-
-
 }
