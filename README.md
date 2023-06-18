@@ -40,9 +40,9 @@ implementation 'com.github.Kodobite:Lib-Fileview:0.2'
 
 ````java
 
- try { 
-          audioPlayer.setDataSource("/storage/emulated/0/Download/TestAudio.m4a");
-          audioPlayer.play();
+ try {
+      audioPlayer.setDataSource("//your audio file source");
+      audioPlayer.play();
         } catch (IOException e) {
             e.printStackTrace();
         }
